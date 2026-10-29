@@ -1,0 +1,30 @@
+@import 'tailwindcss';
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root { font-family: 'Vazirmatn', sans-serif; color: #171717; background: #faf8f5; }
+* { box-sizing: border-box; }
+body { margin: 0; min-width: 320px; line-height: 1.7; }
+button, input, textarea, select { font: inherit; color: #171717; }
+small, p, label, summary, h1, h2, h3, span, b, strong { color: inherit; }
+button { cursor: pointer; }
+button:focus-visible, input:focus-visible { outline: 3px solid color-mix(in srgb, var(--accent, #b45309) 35%, transparent); outline-offset: 2px; }
+.field { width: 100%; border: 1px solid #e7e5e4; border-radius: .85rem; background: #fff; padding: .72rem 1rem; font-size: .9rem; outline: none; transition: border-color .15s, box-shadow .15s; }
+.field:focus { border-color: var(--accent, #b45309); box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent, #b45309) 15%, transparent); }
+.label { display: block; margin-bottom: .45rem; font-size: .875rem; font-weight: 800; }
+.primary-btn, .secondary-btn, .nav-button, .icon-button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: .5rem; border-radius: .85rem; padding: .65rem 1rem; font-size: .875rem; font-weight: 800; transition: background .15s, color .15s, filter .15s, transform .15s; }
+.primary-btn { border: 1px solid #d4a46a; background: var(--accent, #e9c899); color: #171717; }
+.entry-btn { display: inline-flex; min-height: 76px; align-items: center; justify-content: center; gap: .75rem; border: 1px solid #e7e5e4; border-radius: 1.2rem; background: white; padding: 1rem; color: #171717; font-size: 1rem; font-weight: 800; transition: background .15s, transform .15s; }
+.entry-btn:hover { background: #f7eee2; transform: translateY(-2px); }
+.primary-btn:hover:not(:disabled) { filter: brightness(.93); transform: translateY(-1px); }
+.secondary-btn { border: 1px solid #e7e5e4; background: #fff; color: #171717; }
+.secondary-btn:hover, .nav-button:hover, .icon-button:hover { background: #f5f5f4; }
+.nav-button { padding-inline: .65rem; color: #171717; }
+.icon-button { width: 44px; padding: 0; color: #171717; }
+@media (max-width: 520px) { .nav-button { padding-inline: .45rem; font-size: .75rem; } .primary-btn, .secondary-btn { width: 100%; } }
+@media print {
+ body[data-print-receipt] main > * { visibility: hidden; }
+ body[data-print-receipt] [data-testid="receipt"] { display: none; }
+ body[data-print-receipt] [data-testid="receipt"].print-selected { display: block; visibility: visible; position: absolute; inset: 0 auto auto 0; width: 100%; }
+ body[data-print-receipt] .print-selected * { visibility: visible; }
+ body[data-print-receipt] .print-selected .print\:hidden { display: none; }
+}
